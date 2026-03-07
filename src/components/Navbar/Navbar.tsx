@@ -36,8 +36,19 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* CTA - Left (اكتشف المنصة) */}
-          <div className="hidden lg:block">
+          
+          {/* Mobile Toggle (Left on mobile, hidden on lg) */}
+          <button 
+            className="lg:hidden flex flex-col gap-1.5 order-1"
+            onClick={() => setMenuOpen(true)}
+          >
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+          </button>
+
+          {/* CTA - Left (اكتشف المنصة) - Visible only on lg */}
+          <div className="hidden lg:block order-1">
             <a 
               href="#about" 
               className="bg-bright-green/20 text-white border border-bright-green/30 px-6 py-2 rounded-full font-bold text-sm hover:bg-bright-green transition-all shadow-lg shadow-bright-green/10"
@@ -46,8 +57,8 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Links - Middle */}
-          <ul className="hidden lg:flex items-center gap-8">
+          {/* Links - Middle (Visible only on lg) */}
+          <ul className="hidden lg:flex items-center gap-8 order-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a 
@@ -60,21 +71,12 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Logo - Right */}
-          <a href="/" className="flex flex-col items-end group">
+          {/* Logo - Right (Order 3) */}
+          <a href="/" className="flex flex-col items-end group order-3">
             <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight">Food</span>
             <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.2em] -mt-1 uppercase opacity-90">Bridge</span>
           </a>
 
-          {/* Mobile Toggle */}
-          <button 
-            className="lg:hidden flex flex-col gap-1.5"
-            onClick={() => setMenuOpen(true)}
-          >
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </button>
         </div>
       </nav>
 

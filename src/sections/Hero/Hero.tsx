@@ -50,8 +50,8 @@ export default function Hero() {
               whileTap={{ scale: 0.98 }}
               className="w-full sm:w-auto bg-[#366854] text-white px-14 py-5 rounded-full font-black text-xl flex items-center justify-center gap-3 transition-all"
             >
-               <span className="leading-none mt-1">اكتشف المنصة</span>
-               <span className="text-3xl leading-none">›</span>
+               <span className="leading-none flex items-center pt-1">اكتشف المنصة</span>
+               <span className="text-3xl leading-none flex items-center">›</span>
             </motion.a>
 
             {/* Secondary Button (White) */}
