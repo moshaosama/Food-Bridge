@@ -31,39 +31,25 @@ export default function Navbar() {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-dark-green shadow-lg py-2' : 'bg-dark-green/90 backdrop-blur-sm py-4'
+        className={`fixed inset-x-0 top-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? 'bg-[#1a3c2e] shadow-lg py-3' : 'bg-[#1a3c2e] py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
           
-          {/* Mobile Toggle (Left on mobile, hidden on lg) */}
-          <button 
-            className="lg:hidden flex flex-col gap-1.5 order-1"
-            onClick={() => setMenuOpen(true)}
-          >
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </button>
-
-          {/* CTA - Left (اكتشف المنصة) - Visible only on lg */}
-          <div className="hidden lg:block order-1">
-            <a 
-              href="#about" 
-              className="bg-bright-green/20 text-white border border-bright-green/30 px-6 py-2 rounded-full font-bold text-sm hover:bg-bright-green transition-all shadow-lg shadow-bright-green/10"
-            >
-              اكتشف المنصة
-            </a>
-          </div>
+          {/* Logo - First in DOM = Right Side in RTL */}
+          <a href="/" className="flex flex-col items-end group">
+            <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight mb-1">Food</span>
+            <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.2em] uppercase opacity-90 leading-none">Bridge</span>
+          </a>
 
           {/* Links - Middle (Visible only on lg) */}
-          <ul className="hidden lg:flex items-center gap-8 order-2">
+          <ul className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a 
                   href={link.href} 
-                  className="text-white text-sm font-medium transition-colors hover:text-bright-green"
+                  className="text-white text-sm font-medium transition-colors hover:text-[#5dbb6a]"
                 >
                   {link.label}
                 </a>
@@ -71,44 +57,61 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Logo - Right (Order 3) */}
-          <a href="/" className="flex flex-col items-end group order-3">
-            <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight">Food</span>
-            <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.2em] -mt-1 uppercase opacity-90">Bridge</span>
-          </a>
+          {/* CTA - Third in DOM (Visible only on lg) */}
+          <div className="hidden lg:block">
+            <a 
+              href="#about" 
+              className="bg-[#5dbb6a]/20 text-white border border-[#5dbb6a]/30 px-6 py-2 rounded-full font-bold text-sm hover:bg-[#5dbb6a] transition-all shadow-lg shadow-[#5dbb6a]/10"
+            >
+              اكتشف المنصة
+            </a>
+          </div>
+
+          {/* Mobile Toggle - Last in DOM = Left Side in RTL */}
+          <button 
+            className="lg:hidden flex flex-col gap-1.5 p-2"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open Menu"
+          >
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+          </button>
 
         </div>
       </nav>
 
-      {/* Mobile Menu - Replicating screenshot 1:1 */}
+      {/* Mobile Menu - Exactly matching screenshot design */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 bg-dark-green z-[100] lg:hidden flex flex-col pt-6 px-6"
+            className="fixed inset-0 bg-[#1a3c2e] z-[100] lg:hidden flex flex-col pt-6 px-6 overflow-y-auto"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
             {/* Header in Menu */}
-            <div className="flex justify-between items-center mb-20">
-               {/* Close Icon (Left) */}
+            <div className="flex justify-between items-center mb-16 mt-2">
+               
+               {/* Logo (First in DOM = Right in RTL) */}
+               <div className="flex flex-col items-end">
+                  <span className="text-2xl font-black text-white leading-none mb-1">Food</span>
+                  <span className="text-[10px] font-bold text-white tracking-widest uppercase opacity-90 leading-none">Bridge</span>
+               </div>
+
+               {/* Close Icon (Last in DOM = Left in RTL) */}
                <button 
                  onClick={() => setMenuOpen(false)}
-                 className="text-white text-4xl font-light hover:rotate-90 transition-transform duration-300"
+                 className="text-white text-3xl font-light hover:rotate-90 transition-transform duration-300 p-2"
                >
                  ✕
                </button>
 
-               {/* Logo (Right) */}
-               <div className="flex flex-col items-end">
-                  <span className="text-2xl font-black text-white leading-none">Food</span>
-                  <span className="text-[10px] font-bold text-white tracking-widest uppercase -mt-0.5">Bridge</span>
-               </div>
             </div>
 
             {/* Links Centered */}
-            <ul className="flex flex-col items-center gap-10 flex-grow">
+            <ul className="flex flex-col items-center gap-8 flex-grow">
               {navLinks.map((link, i) => (
                 <motion.li 
                   key={link.href}
@@ -118,7 +121,7 @@ export default function Navbar() {
                 >
                   <a 
                     href={link.href} 
-                    className="text-3xl font-bold text-white hover:text-bright-green transition-colors"
+                    className="text-2xl font-bold text-white hover:text-[#5dbb6a] transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
@@ -128,14 +131,14 @@ export default function Navbar() {
               
               {/* CTA Button in Menu */}
               <motion.li 
-                className="mt-10"
+                className="mt-8 w-full max-w-sm px-4 pb-12"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
               >
                 <a 
                   href="#about" 
-                  className="bg-[#5dbb6a] text-white px-16 py-4 rounded-full font-black text-xl shadow-2xl shadow-bright-green/20"
+                  className="bg-[#5dbb6a] text-white w-full py-4 rounded-full font-black text-xl shadow-2xl shadow-[#5dbb6a]/20 flex justify-center items-center"
                   onClick={() => setMenuOpen(false)}
                 >
                   اكتشف المنصة
