@@ -1,9 +1,8 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './Footer.css';
 
 export default function Footer() {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref,] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
     <footer className="footer" id="footer" ref={ref}>
