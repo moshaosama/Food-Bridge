@@ -1,59 +1,57 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import './JoinNetwork.css';
 
-const steps = [
+const joinCards = [
   { 
-    icon: '✈️', 
     title: 'التسجيل كمكتب توريد', 
-    desc: 'سجل الان في المنصة واطلب عرض السعر واحصل على المزارعين والموردين في ثانية واحدة.',
-    btn: 'ابدء التسجيل'
+    desc: 'انضم كمورد معتمد ووسع نطاق أعمالك في السوق السعودي والدولي.', 
+    icon: '🏢' 
   },
   { 
-    icon: '🏢', 
-    title: 'التسجيل كمورد', 
-    desc: 'عرض منتجاتك بأعلى الجودة والكميات والوصول إلى الموردين بين عدة موانئ.',
-    btn: 'ابدء التسجيل'
+    title: 'التسجيل كشركة نقل', 
+    desc: 'ساهم في سلسلة الإمداد من خلال تقديم خدمات النقل واللوجستيات.', 
+    icon: '🚛' 
   },
   { 
-    icon: '🚚', 
-    title: 'التسجيل كنقل', 
-    desc: 'سجل لادارة الصفقات وعرض الطلبات وتحقق من جودة المنتجات والخدمات والموردين.',
-    btn: 'ابدء التسجيل'
-  },
+    title: 'التسجيل كتاجر/مشتري', 
+    desc: 'احصل على أفضل أسعار الجملة للمنتجات الغذائية العالمية.', 
+    icon: '💼' 
+  }
 ];
 
 export default function JoinNetwork() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="join-network" id="join" ref={ref}>
-      <div className="container">
+    <section className="py-24 bg-[#1a3c2e]" id="join" ref={ref}>
+      <div className="container mx-auto px-6">
         <motion.div
-           className="join-header"
-           initial={{ opacity: 0, y: 30 }}
+           className="text-center mb-16"
+           initial={{ opacity: 0, y: 20 }}
            animate={inView ? { opacity: 1, y: 0 } : {}}
-           transition={{ duration: 0.6 }}
         >
-            <h2 className="join-title">انضم إلى شبكة فود بريدج</h2>
-            <p className="join-subtitle">كن جزءاً من المنظومة التي تقود مستقبل تجارة الغذاء بالسوق السعودي</p>
+           <h2 className="text-3xl md:text-5xl font-black text-white">انضم إلى شبكتنا</h2>
+           <div className="w-20 h-1 bg-[#5dbb6a] mx-auto mt-6 rounded-full"></div>
         </motion.div>
 
-        <div className="join-grid">
-          {steps.map((step, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {joinCards.map((card, i) => (
             <motion.div
-              key={step.title}
-              className="join-card"
+              key={card.title}
+              className="bg-white p-10 rounded-[32px] text-center hover:scale-[1.02] transition-transform shadow-2xl shadow-black/20 group"
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <div className="join-icon-box">
-                <span className="join-icon">{step.icon}</span>
+              <div className="w-20 h-20 bg-[#f0f8f3] rounded-3xl flex items-center justify-center text-4xl mx-auto mb-8 group-hover:bg-[#5dbb6a] transition-colors group-hover:text-white">
+                {card.icon}
               </div>
-              <h3 className="join-card-title">{step.title}</h3>
-              <p className="join-card-desc">{step.desc}</p>
-              <button className="join-btn">{step.btn} <span className="btn-arrow">←</span></button>
+              <h3 className="text-2xl font-black text-[#1a3c2e] mb-4">{card.title}</h3>
+              <p className="text-[#4b5563] font-medium leading-relaxed mb-8">{card.desc}</p>
+              <button className="text-[#1a3c2e] font-black hover:text-[#5dbb6a] transition-colors flex items-center justify-center gap-2 mx-auto">
+                <span>ابدأ الآن</span>
+                <span className="mt-1 text-xl">›</span>
+              </button>
             </motion.div>
           ))}
         </div>
