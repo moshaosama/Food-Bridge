@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image */}
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-24 pb-12">
+      {/* Background Image Content */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/images/854ea9e4b95e40c7a435e054789bcbe5785538b6.png" 
           alt="Agriculture Background" 
-          className="w-full h-full object-cover saturate-[0.9] contrast-[1.1] brightness-[0.9]"
+          className="w-full h-full object-cover saturate-[0.8] contrast-[1.05] brightness-[1.05]"
         />
-        {/* White Radial Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,rgba(255,255,255,0.95)_100%)]"></div>
+        {/* Subtle white overlay for text readability but keeping colors vivid */}
+        <div className="absolute inset-0 bg-white/40"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-6 text-center">
@@ -19,35 +19,35 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-5xl mx-auto"
         >
-          {/* Badge */}
-          <div className="inline-block bg-bright-green/10 text-bright-green border border-bright-green/30 px-5 py-1.5 rounded-full text-sm font-bold mb-8">
+          {/* Global Tagline (منصة الأمن الغذائي الدولي) */}
+          <div className="inline-block bg-bright-green/10 text-bright-green border border-bright-green/20 px-6 py-2 rounded-full text-sm font-bold mb-10">
             منصة الأمن الغذائي الدولي
           </div>
 
-          {/* Brand Title */}
-          <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-black text-dark-green mb-4 italic tracking-tight">
+          {/* Brand Name (Food Bridge) */}
+          <h1 className="font-tajawal text-5xl md:text-7xl lg:text-8xl font-black text-dark-green mb-4 tracking-tight">
             Food Bridge
           </h1>
 
-          {/* Main Title */}
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-dark-green mb-8 leading-[1.1] tracking-tight">
+          {/* Main Visual Headline */}
+          <h2 className="text-4xl md:text-7xl lg:text-8xl font-black text-dark-green mb-10 leading-[1.15] tracking-tight">
             مستقبل تجارة الغذاء
           </h2>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-text-gray font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
+          {/* Description Text */}
+          <p className="text-lg md:text-xl text-dark-green/70 font-bold leading-relaxed mb-14 max-w-3xl mx-auto">
             منصة رقمية ربط موردي المواد الغذائية حول العالم بالسوق السعودي، وتوفر حلولاً متكاملة لتجارة المواد الغذائية بالجملة عبر نظام رقمي شفاف وآمن.
           </p>
 
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Landing Actions (Buttons) */}
+          <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-6">
             <motion.a
               href="#about"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto bg-dark-green text-white px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 shadow-xl shadow-dark-green/20 hover:bg-bright-green transition-all"
+              className="w-full sm:w-auto bg-dark-green text-white px-12 py-5 rounded-full font-black text-xl flex items-center justify-center gap-3 shadow-2xl shadow-dark-green/30 hover:bg-bright-green transition-all"
             >
               اكتشف المنصة <span></span>
             </motion.a>
@@ -55,7 +55,7 @@ export default function Hero() {
               href="#join"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto bg-white text-dark-green border-2 border-dark-green/10 px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center shadow-lg hover:border-dark-green transition-all"
+              className="w-full sm:w-auto bg-white text-dark-green px-12 py-5 rounded-full font-black text-xl flex items-center justify-center shadow-xl hover:shadow-2xl transition-all"
             >
               سجل كمزود خدمة
             </motion.a>
@@ -63,8 +63,9 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Hero Graphic Elements - Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-cream to-transparent z-10"></div>
+      {/* Decorative Blur Blobs */}
+      <div className="absolute top-1/4 -right-20 w-80 h-80 bg-bright-green/10 rounded-full blur-3xl z-0"></div>
+      <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-cream/30 rounded-full blur-3xl z-0"></div>
     </section>
   );
 }
