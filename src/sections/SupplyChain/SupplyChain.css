@@ -53,12 +53,35 @@
     display: block;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    .sc-grid { gap: 3rem; }
+    .sc-photo { height: 380px; }
+}
+
+@media (max-width: 768px) {
     .sc-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 30px;
     }
     .sc-photo-wrap {
         order: -1;
     }
+    .sc-photo {
+        height: 280px;
+    }
+    .sc-text {
+        text-align: center;
+    }
+    .sc-underline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sc-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sc-photo { height: 220px; }
+    .sc-photo-frame { border-radius: 20px; }
 }

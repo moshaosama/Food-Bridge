@@ -94,3 +94,25 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 992px) {
+  .jn-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .join-network {
+    padding: 60px 0;
+  }
+  .jn-grid {
+    grid-template-columns: 1fr;
+  }
+  .jn-card {
+    padding: 30px 20px;
+  }
+  .jn-title {
+    font-size: 1.25rem;
+  }
+}

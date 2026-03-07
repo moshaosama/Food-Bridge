@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './Navbar.css';
 
 const navLinks = [
   { label: 'من نحن', href: '#about' },
@@ -22,35 +21,52 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-        <div className="container nav-container">
+      <nav 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* CTA - Left */}
-          <div className="nav-left">
-            <a href="#about" className="btn-nav">اكتشف المنصة</a>
+          <div className="hidden md:block">
+            <a 
+              href="#about" 
+              className="bg-dark-green text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-bright-green transition-colors"
+            >
+              اكتشف المنصة
+            </a>
           </div>
 
           {/* Links - Middle */}
-          <ul className="nav-links">
+          <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="nav-link-item">{link.label}</a>
+                <a 
+                  href={link.href} 
+                  className={`text-sm font-medium transition-colors hover:text-bright-green ${
+                      scrolled ? 'text-dark-green' : 'text-dark-green/80'
+                  }`}
+                >
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
 
           {/* Logo - Right */}
-          <a href="/" className="nav-logo">
-            <div className="logo-text-group">
-                <span className="logo-top">Food</span>
-                <span className="logo-bottom">BRIDGE</span>
-            </div>
+          <a href="/" className="flex flex-col items-end group">
+            <span className="text-xl md:text-2xl font-black text-dark-green leading-none tracking-tight">Food</span>
+            <span className="text-[10px] md:text-xs font-bold text-bright-green tracking-[0.2em] -mt-1 uppercase">Bridge</span>
           </a>
 
           {/* Mobile Toggle */}
-          <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+          <button 
+            className="md:hidden flex flex-col gap-1.5 z-50 relative"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <div className={`w-6 h-0.5 bg-dark-green transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-dark-green transition-all ${menuOpen ? 'opacity-0' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-dark-green transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
           </button>
         </div>
       </nav>
@@ -58,18 +74,32 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="mobile-nav"
+            className="fixed inset-0 bg-white z-40 md:hidden flex flex-col items-center justify-center gap-8"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
           >
-            <ul className="mobile-nav-links">
+            <ul className="flex flex-col items-center gap-6">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+                  <a 
+                    href={link.href} 
+                    className="text-2xl font-bold text-dark-green hover:text-bright-green"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
-              <li><a href="#about" className="btn-nav" onClick={() => setMenuOpen(false)}>اكتشف المنصة</a></li>
+              <li className="mt-4">
+                <a 
+                  href="#about" 
+                  className="bg-dark-green text-white px-8 py-3 rounded-full font-bold text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  اكتشف المنصة
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}

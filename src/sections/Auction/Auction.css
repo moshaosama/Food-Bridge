@@ -99,8 +99,34 @@
     font-size: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    .auction-layout { gap: 3rem; }
+}
+
+@media (max-width: 768px) {
     .auction-layout {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .auction-card {
+        order: -1;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .auction-text {
+        text-align: center;
+    }
+    .auction-underline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .auction-title {
+        font-size: 1.8rem;
+    }
+    .auction-desc {
+        font-size: 0.95rem;
+    }
+    .auction-item {
+        padding: 12px;
     }
 }

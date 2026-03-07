@@ -102,9 +102,21 @@
     color: rgba(255,255,255,0.4);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    .footer-grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    .footer-main { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
     .footer-grid-layout {
         grid-template-columns: 1fr;
         gap: 40px;
+        text-align: center;
     }
+    .footer-main { grid-column: span 1; }
+    .footer-social-box { justify-content: center; }
+    .footer-brand-logo { align-items: center; }
 }

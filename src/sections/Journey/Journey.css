@@ -96,11 +96,28 @@
     line-height: 1.6;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    .partnership-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
     .journey-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .journey-item::after { display: none; }
+    .journey-item {
+        padding: 24px;
     }
     .partnership-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
+    .partnership-card {
+        padding: 20px;
+    }
+    .mt-100 { margin-top: 60px; }
 }

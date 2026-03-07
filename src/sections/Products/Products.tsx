@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import './Products.css';
 
 const products = [
   { 
@@ -24,34 +23,42 @@ export default function Products() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="products section-padding" id="products" ref={ref}>
-      <div className="container">
+    <section className="py-20 bg-light-cream" id="products" ref={ref}>
+      <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-60"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="products-badge">الإنتائج المحلي</div>
-          <h2 className="products-title">أهم المحاصيل السعودية</h2>
-          <div className="products-underline"></div>
+          <div className="inline-block bg-bright-green/10 text-bright-green px-5 py-1.5 rounded-full text-sm font-bold mb-4">
+            الإنتائج المحلي
+          </div>
+          <h2 className="text-3xl lg:text-5xl font-black text-dark-green mb-4">
+            أهم المحاصيل السعودية
+          </h2>
+          <div className="w-20 h-1 bg-bright-green mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="products-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
-              className="product-card"
+              className="bg-white rounded-[30px] overflow-hidden shadow-sm border border-black/5 hover:border-bright-green hover:shadow-xl hover:-translate-y-2 transition-all duration-400 group"
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="product-image-box">
-                <img src={product.image} alt={product.name} className="product-img" />
+              <div className="h-[240px] overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.name} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
               </div>
-              <div className="product-info">
-                <h3 className="product-name">{product.name}</h3>
-                <p className="product-description">{product.desc}</p>
+              <div className="p-8 text-center">
+                <h3 className="text-2xl font-extrabold text-dark-green mb-4">{product.name}</h3>
+                <p className="text-text-gray leading-loose">{product.desc}</p>
               </div>
             </motion.div>
           ))}
