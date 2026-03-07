@@ -19,11 +19,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [menuOpen]);
+
   return (
     <>
       <nav 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-dark-green shadow-lg py-2' : 'bg-dark-green py-4'
+          scrolled ? 'bg-dark-green shadow-lg py-2' : 'bg-dark-green/90 backdrop-blur-sm py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -59,45 +68,77 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button 
-            className="lg:hidden flex flex-col gap-1.5 z-50 relative"
-            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden flex flex-col gap-1.5"
+            onClick={() => setMenuOpen(true)}
           >
-            <div className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? 'opacity-0' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
           </button>
         </div>
       </nav>
 
+      {/* Mobile Menu - Replicating screenshot 1:1 */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 bg-dark-green z-40 lg:hidden flex flex-col items-center justify-center gap-8"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
+            className="fixed inset-0 bg-dark-green z-[100] lg:hidden flex flex-col pt-6 px-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
-            <ul className="flex flex-col items-center gap-6">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+            {/* Header in Menu */}
+            <div className="flex justify-between items-center mb-20">
+               {/* Close Icon (Left) */}
+               <button 
+                 onClick={() => setMenuOpen(false)}
+                 className="text-white text-4xl font-light hover:rotate-90 transition-transform duration-300"
+               >
+                 ✕
+               </button>
+
+               {/* Logo (Right) */}
+               <div className="flex flex-col items-end">
+                  <span className="text-2xl font-black text-white leading-none">Food</span>
+                  <span className="text-[10px] font-bold text-white tracking-widest uppercase -mt-0.5">Bridge</span>
+               </div>
+            </div>
+
+            {/* Links Centered */}
+            <ul className="flex flex-col items-center gap-10 flex-grow">
+              {navLinks.map((link, i) => (
+                <motion.li 
+                  key={link.href}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                >
                   <a 
                     href={link.href} 
-                    className="text-2xl font-bold text-white hover:text-bright-green"
+                    className="text-3xl font-bold text-white hover:text-bright-green transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
                   </a>
-                </li>
+                </motion.li>
               ))}
-              <li className="mt-4">
+              
+              {/* CTA Button in Menu */}
+              <motion.li 
+                className="mt-10"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
                 <a 
                   href="#about" 
-                  className="bg-bright-green text-white px-8 py-3 rounded-full font-bold text-lg"
+                  className="bg-[#5dbb6a] text-white px-16 py-4 rounded-full font-black text-xl shadow-2xl shadow-bright-green/20"
                   onClick={() => setMenuOpen(false)}
                 >
                   اكتشف المنصة
                 </a>
-              </li>
+              </motion.li>
             </ul>
           </motion.div>
         )}
