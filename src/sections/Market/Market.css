@@ -1,0 +1,134 @@
+.market {
+    background-color: var(--white);
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.market-text {
+    text-align: right;
+}
+
+.market-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--dark-green);
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.market-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--bright-green);
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+
+.market-desc {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.market-features {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.m-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--dark-green);
+    font-size: 0.95rem;
+}
+
+.mf-icon {
+    font-size: 1.5rem;
+}
+
+/* Stats Card */
+.market-stats-card {
+    background: white;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.m-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.m-card-tag {
+    background: rgba(93, 187, 106, 0.1);
+    color: var(--bright-green);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.m-card-icon {
+    font-size: 1.5rem;
+}
+
+.m-stat-item {
+    margin-bottom: 25px;
+}
+
+.m-stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.m-stat-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.m-stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.m-stat-val {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--dark-green);
+}
+
+.m-progress-bg {
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.m-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bright-green), var(--accent-green));
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .market-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .market-stats-card {
+        order: -1;
+    }
+}
