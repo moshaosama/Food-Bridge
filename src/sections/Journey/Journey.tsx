@@ -22,15 +22,15 @@ export default function Journey() {
       <div className="container mx-auto px-6">
         {/* Journey Section */}
         <motion.div
-           className="text-center mb-16"
-           initial={{ opacity: 0, y: 30 }}
-           animate={inView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
         >
-           <h2 className="text-3xl md:text-5xl font-black text-[#1a3c2e] mb-6">رحلة العميل</h2>
-           <p className="text-[#4b5563] font-medium text-lg leading-relaxed max-w-xl mx-auto">خطوات بسيطة وسريعة لإتمام الصفقات بنجاح</p>
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-black text-[#1a3c2e] mb-4 md:mb-6">رحلة العميل</h2>
+          <p className="text-sm md:text-lg text-[#4b5563] font-medium leading-relaxed max-w-xl mx-auto px-4">خطوات بسيطة وسريعة لإتمام الصفقات بنجاح</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 lg:gap-20">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
@@ -39,42 +39,42 @@ export default function Journey() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
             >
-              <div className="w-20 h-20 bg-white border-2 border-[#5dbb6a] text-[#5dbb6a] rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-xl shadow-[#5dbb6a]/10">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-[#5dbb6a] text-[#5dbb6a] rounded-full flex items-center justify-center text-2xl md:text-3xl font-black mb-6 md:mb-8 shadow-xl shadow-[#5dbb6a]/10">
                 {step.num}
               </div>
-              <h3 className="text-2xl font-black text-[#1a3c2e] mb-4">{step.title}</h3>
-              <p className="text-[#4b5563] leading-relaxed font-medium">{step.desc}</p>
+              <h3 className="text-xl md:text-2xl font-black text-[#1a3c2e] mb-3 md:mb-4">{step.title}</h3>
+              <p className="text-sm md:text-base text-[#4b5563] leading-relaxed font-medium">{step.desc}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Partnership Section */}
         <motion.div
-            className="text-center mt-32 mb-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-24 md:mt-32 mb-12 md:mb-16"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-            <h2 className="text-3xl md:text-5xl font-black text-[#1a3c2e]">فرص مقدمي الخدمات</h2>
-            <div className="w-20 h-1 bg-[#5dbb6a] mx-auto mt-6 rounded-full"></div>
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-black text-[#1a3c2e]">فرص مقدمي الخدمات</h2>
+          <div className="w-16 md:w-20 h-1 bg-[#5dbb6a] mx-auto mt-4 md:mt-6 rounded-full"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {partnershipOpportunities.map((op, i) => (
             <motion.div
               key={op.title}
-              className="bg-white p-8 rounded-3xl border border-black/5 flex flex-col items-center md:items-start text-center md:text-right hover:shadow-2xl hover:-translate-y-2 transition-all group"
+              className="bg-white p-6 md:p-8 rounded-[24px] md:rounded-3xl border border-black/5 flex flex-col items-center md:items-start text-center md:text-right hover:shadow-2xl hover:-translate-y-2 transition-all group"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 + (i * 0.1) }}
             >
-               <div className="w-16 h-16 bg-[#f0f8f3] rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-[#5dbb6a] group-hover:text-white transition-colors">
-                 {op.icon}
-               </div>
-               <div>
-                  <h3 className="text-xl font-bold text-[#1a3c2e] mb-3 leading-tight">{op.title}</h3>
-                  <p className="text-sm text-[#4b5563] font-medium leading-relaxed">{op.desc}</p>
-               </div>
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-[#f0f8f3] rounded-xl md:rounded-2xl flex items-center justify-center text-2xl md:text-3xl mb-4 md:mb-6 group-hover:bg-[#5dbb6a] group-hover:text-white transition-colors">
+                {op.icon}
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-bold text-[#1a3c2e] mb-2 md:mb-3 leading-tight">{op.title}</h3>
+                <p className="text-[13px] md:text-sm text-[#4b5563] font-medium leading-relaxed">{op.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
