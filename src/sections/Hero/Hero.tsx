@@ -27,31 +27,31 @@ export default function Hero() {
           </div>
 
           {/* Brand Name */}
-          <h1 className="font-tajawal text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#1a3c2e] mb-2 tracking-tight">
+          <h1 className="font-tajawal text-3xl md:text-6xl lg:text-7xl font-extrabold text-[#1a3c2e] mb-2 tracking-tight">
             Food Bridge
           </h1>
 
           {/* Main Visual Headline */}
-          <h2 className="text-4xl md:text-7xl lg:text-8xl font-black text-[#1a3c2e] mb-12 leading-[1.1] tracking-tight">
+          <h2 className="text-3xl md:text-7xl lg:text-8xl font-black text-[#1a3c2e] mb-8 md:mb-12 leading-[1.1] tracking-tight">
             مستقبل تجارة الغذاء
           </h2>
 
           {/* Description Text */}
-          <p className="text-lg md:text-xl text-[#1a3c2e]/60 font-bold leading-relaxed mb-16 max-w-2xl mx-auto px-4">
+          <p className="text-base md:text-xl text-[#1a3c2e]/60 font-bold leading-relaxed mb-12 md:mb-16 max-w-2xl mx-auto px-4">
             منصة رقمية ربط موردي المواد الغذائية حول العالم بالسوق السعودي، وتوفر حلولاً متكاملة لتجارة المواد الغذائية بالجملة عبر نظام رقمي شفاف وآمن.
           </p>
 
           {/* Landing Actions - Replicating screenshot 1:1 */}
-          <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-4 md:gap-6">
             {/* Primary Button (Green) */}
             <motion.a
               href="#about"
               whileHover={{ scale: 1.02, backgroundColor: '#2d5a40' }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-[#366854] text-white px-14 py-5 rounded-full font-black text-xl flex items-center justify-center gap-3 transition-all"
+              className="w-full sm:w-auto bg-[#366854] text-white px-8 md:px-14 py-4 md:py-5 rounded-full font-black text-lg md:text-xl flex items-center justify-center gap-3 transition-all"
             >
                <span className="leading-none flex items-center pt-1">اكتشف المنصة</span>
-               <span className="text-3xl leading-none flex items-center">›</span>
+               <span className="text-2xl md:text-3xl leading-none flex items-center">›</span>
             </motion.a>
 
             {/* Secondary Button (White) */}
@@ -59,7 +59,7 @@ export default function Hero() {
               href="#join"
               whileHover={{ scale: 1.02, backgroundColor: '#f9fafb' }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-white text-[#1a3c2e] border-2 border-[#1a3c2e]/5 px-14 py-5 rounded-full font-black text-xl flex items-center justify-center transition-all shadow-xl shadow-black/5"
+              className="w-full sm:w-auto bg-white text-[#1a3c2e] border-2 border-[#1a3c2e]/5 px-8 md:px-14 py-4 md:py-5 rounded-full font-black text-lg md:text-xl flex items-center justify-center transition-all shadow-xl shadow-black/5"
             >
               سجل كمزود خدمة
             </motion.a>

@@ -30,27 +30,26 @@ export default function Navbar() {
 
   return (
     <>
-      <nav 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-dark-green shadow-lg py-2' : 'bg-dark-green/90 backdrop-blur-sm py-4'
-        }`}
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-green shadow-lg py-2' : 'bg-dark-green/90 backdrop-blur-sm py-4'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          
+
           {/* Mobile Toggle (Left on mobile, hidden on lg) */}
-          <button 
-            className="lg:hidden flex flex-col gap-1.5 order-1"
+          <button
+            className="lg:hidden flex flex-col gap-1 order-1"
             onClick={() => setMenuOpen(true)}
           >
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-5 h-0.5 bg-white"></div>
+            <div className="w-5 h-0.5 bg-white"></div>
+            <div className="w-5 h-0.5 bg-white"></div>
           </button>
 
           {/* CTA - Left (اكتشف المنصة) - Visible only on lg */}
           <div className="hidden lg:block order-1">
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="bg-bright-green/20 text-white border border-bright-green/30 px-6 py-2 rounded-full font-bold text-sm hover:bg-bright-green transition-all shadow-lg shadow-bright-green/10"
             >
               اكتشف المنصة
@@ -61,8 +60,8 @@ export default function Navbar() {
           <ul className="hidden lg:flex items-center gap-8 order-2">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a 
-                  href={link.href} 
+                <a
+                  href={link.href}
                   className="text-white text-sm font-medium transition-colors hover:text-bright-green"
                 >
                   {link.label}
@@ -73,8 +72,8 @@ export default function Navbar() {
 
           {/* Logo - Right (Order 3) */}
           <a href="/" className="flex flex-col items-end group order-3">
-            <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight">Food</span>
-            <span className="text-[10px] md:text-xs font-bold text-white tracking-[0.2em] -mt-1 uppercase opacity-90">Bridge</span>
+            <span className="text-xl md:text-3xl font-black text-white leading-none tracking-tight transition-all">Food</span>
+            <span className="text-[8px] md:text-xs font-bold text-white tracking-[0.2em] -mt-0.5 md:-mt-1 uppercase opacity-90 transition-all">Bridge</span>
           </a>
 
         </div>
@@ -91,51 +90,51 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             {/* Header in Menu */}
-            <div className="flex justify-between items-center mb-20">
-               {/* Close Icon (Left) */}
-               <button 
-                 onClick={() => setMenuOpen(false)}
-                 className="text-white text-4xl font-light hover:rotate-90 transition-transform duration-300"
-               >
-                 ✕
-               </button>
+            <div className="flex justify-between items-center mb-12 md:mb-20">
+              {/* Close Icon (Left) */}
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-white text-3xl md:text-4xl font-light hover:rotate-90 transition-transform duration-300"
+              >
+                ✕
+              </button>
 
-               {/* Logo (Right) */}
-               <div className="flex flex-col items-end">
-                  <span className="text-2xl font-black text-white leading-none">Food</span>
-                  <span className="text-[10px] font-bold text-white tracking-widest uppercase -mt-0.5">Bridge</span>
-               </div>
+              {/* Logo (Right) */}
+              <div className="flex flex-col items-end">
+                <span className="text-xl md:text-2xl font-black text-white leading-none">Food</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-white tracking-widest uppercase -mt-0.5">Bridge</span>
+              </div>
             </div>
 
             {/* Links Centered */}
-            <ul className="flex flex-col items-center gap-10 flex-grow">
+            <ul className="flex flex-col items-center gap-8 md:gap-10 flex-grow">
               {navLinks.map((link, i) => (
-                <motion.li 
+                <motion.li
                   key={link.href}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05 }}
                 >
-                  <a 
-                    href={link.href} 
-                    className="text-3xl font-bold text-white hover:text-bright-green transition-colors"
+                  <a
+                    href={link.href}
+                    className="text-2xl md:text-3xl font-bold text-white hover:text-bright-green transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
                   </a>
                 </motion.li>
               ))}
-              
+
               {/* CTA Button in Menu */}
-              <motion.li 
-                className="mt-10"
+              <motion.li
+                className="mt-6 md:mt-10"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <a 
-                  href="#about" 
-                  className="bg-[#5dbb6a] text-white px-16 py-4 rounded-full font-black text-xl shadow-2xl shadow-bright-green/20"
+                <a
+                  href="#about"
+                  className="bg-[#5dbb6a] text-white px-12 md:px-16 py-3 md:py-4 rounded-full font-black text-lg md:text-xl shadow-2xl shadow-bright-green/20"
                   onClick={() => setMenuOpen(false)}
                 >
                   اكتشف المنصة

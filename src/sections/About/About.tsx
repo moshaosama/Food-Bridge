@@ -15,16 +15,16 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="text-right"
           >
-            <h2 className="text-3xl lg:text-5xl font-black text-dark-green flex items-center gap-4 justify-end mb-10">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-black text-dark-green flex items-center gap-4 justify-end mb-6 md:mb-10">
               من نحن <span className="text-bright-green">——</span>
             </h2>
-            
-            <p className="text-lg text-text-gray leading-loose mb-8 max-w-xl ml-auto">
+
+            <p className="text-base md:text-lg text-text-gray leading-loose mb-6 md:mb-8 max-w-xl ml-auto">
               منصة فود بريدج هي سوق جملة رقمية تجمع موردي المواد الغذائية في العالم بالسوق السعودي بأفضل الأسعار، مع سلسلة توريد متكاملة تمتد من المزرعة إلى المشتري.
             </p>
-            
-            <p className="text-lg text-text-gray leading-loose max-w-xl ml-auto">
-              تأسست فود بريدج في الرياض عام 2025 لتكون سوقاً إلكترونياً متخصصاً في التعاملات التجارية بين الشركات (B2B) في قطاع الأغذية، وتوفر بيئة رقمية موثوقة تتيح للمشترين مقارنة الموردين والوصول إلى أفضل العروض.
+
+            <p className="text-base md:text-lg text-text-gray leading-loose max-w-xl ml-auto">
+              تأسست فود بريدج في الرياض عام 2025 لتكون سوقاً إلكترونياً متخصصاً في التعاملات التجارية بين الشركات (B2B) in قطاع الأغذية، وتوفر بيئة رقمية موثوقة تتيح للمشترين مقارنة الموردين والوصول إلى أفضل العروض.
             </p>
           </motion.div>
 
@@ -35,11 +35,11 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="order-first lg:order-last"
           >
-            <div className="rounded-[40px] overflow-hidden shadow-2xl shadow-dark-green/10">
-              <img 
-                src="/images/854ea9e4b95e40c7a435e054789bcbe5785538b6.png" 
-                alt="منصة فود بريدج" 
-                className="w-full h-[300px] md:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
+            <div className="rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl shadow-dark-green/10">
+              <img
+                src="/images/854ea9e4b95e40c7a435e054789bcbe5785538b6.png"
+                alt="منصة فود بريدج"
+                className="w-full h-[250px] md:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
           </motion.div>
