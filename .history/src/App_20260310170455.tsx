@@ -20,8 +20,8 @@ function App() {
         <About />
         <ValueAdded />
         <SupplyChain />
+        <Market />
         <Products />
-        {/* <Market /> */}
         <Auction />
         <Journey />
         <JoinNetwork />

@@ -19,9 +19,10 @@ function App() {
         <Hero />
         <About />
         <ValueAdded />
-        <SupplyChain />
+        <Market />
+
         <Products />
-        {/* <Market /> */}
+        <SupplyChain />
         <Auction />
         <Journey />
         <JoinNetwork />

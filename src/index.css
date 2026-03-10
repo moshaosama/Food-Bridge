@@ -21,12 +21,14 @@
   scroll-behavior: smooth;
 }
 
+html,
 body {
   font-family: "Tajawal", sans-serif;
   background-color: #faf7f2;
   color: #1a2e1a;
   direction: rtl;
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* Custom Scrollbar */
@@ -44,6 +46,7 @@ body {
 /* Utilities */
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
