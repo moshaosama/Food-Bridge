@@ -23,7 +23,7 @@ export default function JoinNetwork() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="py-24 bg-[#1a3c2e]" id="join" ref={ref}>
+    <section className="py-24 bg-[#1a3c2e] overflow-hidden" id="join" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-12 md:mb-16"

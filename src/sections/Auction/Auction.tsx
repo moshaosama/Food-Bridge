@@ -11,7 +11,7 @@ export default function Auction() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="py-20 bg-white" id="auction" ref={ref}>
+    <section className="py-20 bg-white overflow-hidden" id="auction" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Card Side */}
