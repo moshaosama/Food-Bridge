@@ -5,7 +5,7 @@ export default function Founder() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="py-20 bg-white" id="founder" ref={ref}>
+    <section className="py-20 bg-white overflow-hidden" id="founder" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text */}

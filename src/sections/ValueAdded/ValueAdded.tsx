@@ -11,7 +11,7 @@ export default function ValueAdded() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="py-20 bg-dark-green text-white text-center" id="value" ref={ref}>
+    <section className="py-20 bg-dark-green text-white text-center overflow-hidden" id="value" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           className="mb-12 md:mb-16"
